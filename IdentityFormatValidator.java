@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public final class IdentityFormatValidator {
     private IdentityFormatValidator() {
     }
@@ -210,12 +212,18 @@ public final class IdentityFormatValidator {
     }
 
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Usage: java IdentityFormatValidator <PAN|AADHAAR>");
-            return;
+        String input;
+
+        if (args.length > 0) {
+            input = args[0];
+        } else {
+            System.out.print("Enter identity value: ");
+            try (Scanner scanner = new Scanner(System.in)) {
+                input = scanner.hasNextLine() ? scanner.nextLine().trim() : "";
+            }
         }
 
-        ValidationResult result = validate(args[0]);
+        ValidationResult result = validate(input);
         System.out.println(result);
     }
 }

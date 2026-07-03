@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run IdentityFormatValidator",
+      "type": "shell",
+      "command": "javac IdentityFormatValidator.java && java IdentityFormatValidator",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
